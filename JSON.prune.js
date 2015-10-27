@@ -82,6 +82,8 @@
 		case 'boolean':
 		case 'null':
 			return String(value);
+		case 'function':
+      return customString ? quote(customString) : '"-pruned-"';
 		case 'object':
 			if (!value) {
 				return 'null';
