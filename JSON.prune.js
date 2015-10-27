@@ -83,13 +83,13 @@
 		case 'null':
 			return String(value);
 		case 'function':
-      return customString ? quote(customString) : '"-pruned-"';
+      return customString ? quote(customString) : '"Function (pruned)"';
 		case 'object':
 			if (!value) {
 				return 'null';
 			}
 			if (depthDecr<=0 || seen.indexOf(value)!==-1) {
-				return customString ? quote(customString) : '"-pruned-"';
+				return customString ? quote(customString) : value instanceof Array ? '"Array (pruned)"' : '"Object (pruned)"';
 			}
 			seen.push(value);
 			partial = [];
